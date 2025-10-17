@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Venda ID: <?php echo $venda['id']; ?></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Editar Venda #<?php echo htmlspecialchars($venda['id']); ?></h1>
+        <p><a href="listar.php">Voltar para a Lista</a></p>
+
+        <?php if (!empty($mensagem)): ?>
+            <div class="alert alert-danger" role="alert"><?php echo $mensagem; ?></div>
+        <?php endif; ?>
+
+        <form method="POST" action="editar.php?id=<?php echo $venda['id']; ?>" class="card p-4">
+            <input type="hidden" name="id" value="<?php echo htmlspecialchars($venda['id']); ?>">
+            
+            <div class="mb-3">
+                <label for="nome_produto" class="form-label">Nome do Produto</label>
+                <input type="text" class="form-control" id="nome_produto" name="nome_produto" 
+                       value="<?php echo htmlspecialchars($venda['nome_produto']); ?>" required>
+            </div>
+            <div class="mb-3">
+                <label for="quantidade_vendida" class="form-label">Quantidade Vendida</label>
+                <input type="number" class="form-control" id="quantidade_vendida" name="quantidade_vendida" 
+                       value="<?php echo htmlspecialchars($venda['quantidade_vendida']); ?>" min="1" required>
+            </div>
+            <div class="mb-3">
+                <label for="data_venda" class="form-label">Data da Venda</label>
+                <input type="date" class="form-control" id="data_venda" name="data_venda" 
+                       value="<?php echo htmlspecialchars($venda['data_venda']); ?>" required>
+            </div>
+            <button type="submit" class="btn btn-warning">Atualizar Venda</button>
+        </form>
+    </div>
+</body>
+</html>
