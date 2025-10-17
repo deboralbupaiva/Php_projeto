@@ -1,0 +1,22 @@
+-- 1. Crie o banco de dados (se ainda não existir)
+-- Mude 'controle_vendas_db' para o nome que você preferir.
+CREATE DATABASE IF NOT EXISTS controle_vendas_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- 2. Use o banco de dados criado
+USE controle_vendas_db;
+
+-- 3. Crie a tabela produtos
+CREATE TABLE IF NOT EXISTS vendas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome_produto VARCHAR(100) NOT NULL,
+    quantidade_vendida INT NOT NULL,
+    data_venda DATE NOT NULL
+);
+
+-- 4. Inserir alguns dados de exemplo (opcional)
+INSERT INTO vendas (nome_produto, quantidade_vendida, data_venda) VALUES
+('Notebook Gamer', 5, '2024-10-01'),
+('Mouse Sem Fio', 20, '2024-10-05'),
+('Notebook Gamer', 3, '2024-10-08'),
+('Teclado Mecânico', 10, '2024-10-10'),
+('Mouse Sem Fio', 15, '2024-10-15');
